@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.cards-container{
+    overflow-x: auto;
+}
+
+.row {
+    padding: 3%;
+}
+
+.card {
+    margin-left: 15px;
+    margin-top: 4px;
+    min-width: 300px;
+}
+
+.separator{
+    background-color: rgb(29, 74, 82);
+    height: 5px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.features{
+    text-align: center;
+}

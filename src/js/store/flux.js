@@ -1,18 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			// demo: [
-			// 	{
-			// 		title: "FIRST",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	},
-			// 	{
-			// 		title: "SECOND",
-			// 		background: "white",
-			// 		initial: "white"
-			// 	}
-			// ],
 			characters: [],
 			planets: [],
 			favorites: []
@@ -31,15 +19,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						// 	_characters.push(dat);
 						// });
 						let arrayResults = data.results;
-						let peopleArray = [];
+						let _characters = [];
 
 						for (let i = 0; i < arrayResults.length; i++) {
 							const res = await fetch(arrayResults[i].url);
 							const json = await res.json();
 							const data = await json.result.properties;
-							peopleArray.push(data);
+							_characters.push(data);
 						}
-						setStore({ characters: peopleArray });
+						setStore({ characters: _characters });
 					});
 			},
 
@@ -69,29 +57,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				favorites.splice(index, 1);
 				setStore({ favorites: [...favorites] });
 			}
-
-			// exampleFunction: () => {
-			//     getActions().changeColor(0, "green");
-			// },
-			// loadSomeData: () => {
-			// 	/**
-			// 		fetch().then().then(data => setStore({ "foo": data.bar }))
-			// 	*/
-			// },
-			// changeColor: (index, color) => {
-			//     //get the store
-			//     const store = getStore();
-
-			//     //we have to loop the entire demo array to look for the respective index
-			//     //and change its color
-			//     const demo = store.demo.map((elm, i) => {
-			//         if (i === index) elm.background = color;
-			//         return elm;
-			//     });
-
-			//     //reset the global store
-			//     setStore({ demo: demo });
-			// }
 		}
 	};
 };
